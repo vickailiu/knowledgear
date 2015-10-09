@@ -1,0 +1,166 @@
+#main{
+position:absolute;
+top:1%;
+left:1%;
+width:1020px;
+height:750px;
+}
+#list{
+position:absolute;
+border : 1px solid;
+top:5%;
+left:90%;
+width:400px;
+height:450px;
+}
+#resistor{
+position:absolute;
+border : 1px solid;
+top:70%;
+left:40%;
+width:400px;
+height:150px; 
+}
+#displayColor{
+position:absolute;
+border : 0px solid;
+top:40%;
+left:25%;
+width: 650px;
+height: 100px;
+}
+#color0{
+position:absolute;
+border : 0px solid;
+width:50px;
+height:100px;
+}
+#color1{
+position:absolute;
+border : 0px solid;
+width:50px;
+height:100px;
+}
+#color2{
+position:absolute;
+border : 0px solid;
+width:50px;
+height:100px;
+}
+#color3{
+position:absolute;
+border : 0px solid;
+width:50px;
+height:100px;
+}
+#color4{
+position:absolute;
+border : 0px solid;
+width:50px;
+height:100px;
+}
+#color5{
+position:absolute;
+border : 0px solid;
+width:50px;
+height:100px;
+}
+#color6{
+position:absolute;
+border : 0px solid;
+width:50px;
+height:100px;
+}
+#color7{
+position:absolute;
+border : 0px solid;
+width:50px;
+height:100px;
+}
+#color8{
+position:absolute;
+border : 0px solid;
+width:50px;
+height:100px;
+}
+#color9{
+position:absolute;
+border : 0px solid;
+width:50px;
+height:100px;
+}
+#color10{
+position:absolute;
+border : 0px solid;
+width:50px;
+height:100px;
+}
+#color11{
+position:absolute;
+border : 0px solid;
+width:50px;
+height:100px;
+}
+#displayInput{
+position:absolute;
+border : 0px solid;
+top:35%;
+left:35%;
+width: 100px;
+height: 100px;
+}
+#undoButton{
+position:absolute;
+top:80%;
+left:90%;
+width:55px;
+height:20px;
+}
+#replayButton{
+position:absolute;
+top:80%;
+left:99%;
+width:55px;
+height:20px;
+}
+#submitButton{
+position:absolute;
+top:80%;
+left:99%;
+width:55px;
+height:20px;
+}
+#backButton{
+position:absolute;
+top:85%;
+left:95%;
+width:250px;
+height:20px;
+}
+#nextButton{
+position:absolute;
+top:80%;
+left:99%;
+width:55px;
+height:20px;
+}
+#answer{
+position:absolute;
+text-align:center;
+top:40%;
+left:37%;
+width:500px;
+height:200px;
+}
+#label{
+position:absolute;
+border : 0px solid;
+top:1%;
+left:1%;
+width:700px;
+height:300px;
+}
+#resistor{
+background: url("../../../images/phase02/p2_resistor/resistor.png");
+background-size: 100%;
+}

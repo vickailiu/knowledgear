@@ -1,0 +1,88 @@
+#map{	
+	background: url("../images/npn/map.png");
+	background-size:100%;
+	width:800px;
+	height:625px;
+	position:relative;
+	margin-top:20px;
+}
+
+#information {
+	font-weight:bold;
+	font-size:120%;
+}
+
+button {
+	border : 0px solid;
+	width:100px;
+	height:50px;
+	border-radius:3px;
+	background-color:#00CC66;
+	margin:3px 25px;
+}
+
+form {
+	margin-top:80px;
+	max-width:300px;
+	min-width:100px;
+	padding:10px 20px;
+	border:2px solid gray;
+	border-radius:10px;
+	font-family:raleway;
+	background-color:#fff
+}
+#fac {
+	position:absolute;
+	left:160px;
+	top:230px;
+	width:260px;
+	height:150px;
+}
+#manu {
+	position:absolute;
+	left:60px;
+	top:400px;
+	width:200px;
+	height:210px;
+}
+#sch {
+	position:absolute;
+	left:280px;
+	top:70px;
+	width:220px;
+	height:120px;
+}
+#hdb {
+	position:absolute;
+	left:20px;
+	top:60px;
+	width:250px;
+	height:200px;
+}
+#ndMgt {
+	position:absolute;
+	left:500px;
+	top:60px;
+	width:250px;
+	height:200px;
+}
+#traf {
+	position:absolute;
+	left:310px;
+	top:340px;
+	width:150px;
+	height:250px;
+}
+#agri {
+	position:absolute;
+	left:470px;
+	top:330px;
+	width:250px;
+	height:200px;
+}
+
+#chart_div{
+	width:800px;
+	height:625px;
+]
+

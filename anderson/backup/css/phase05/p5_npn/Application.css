@@ -1,0 +1,211 @@
+#submitbutton{
+position:absolute;
+border : 0px solid;
+top:8%;
+left:90%;
+width:100px;
+height:50px;
+border-radius:3px;
+background-color:#00CC66;
+}
+
+#endbutton{
+position:absolute;
+border : 0px solid;
+top:8%;
+left:90%;
+width:100px;
+height:50px;
+border-radius:3px;
+background-color:#B40404;
+}
+#returnbutton{
+position:absolute;
+border : 0px solid;
+top:15%;
+left:90%;
+width:100px;
+height:50px;
+border-radius:3px;
+background-color:#A9D0F5;
+}
+
+#factory{
+position:absolute;
+border : 0px solid;
+top:35%;
+left:20%;
+width:300px;
+height:100px;
+}
+#school{
+position:absolute;
+border : 0px solid;
+top:10%;
+left:35%;
+width:220px;
+height:120px;
+}
+#hdb{
+position:absolute;
+border : 0px solid;
+top:10%;
+left:5%;
+width:200px;
+height:150px;
+}
+#manufacturer{
+position:absolute;
+border : 0px solid;
+top:60%;
+left:5%;
+width:200px;
+height:210px;
+}
+#traffic{
+position:absolute;
+border : 0px solid;
+top:55%;
+left:40%;
+width:150px;
+height:250px;
+}
+#naturaldisasterMgt{
+position:absolute;
+border : 0px solid;
+top:10%;
+left:65%;
+width:250px;
+height:200px;
+}
+#agriculture{
+position:absolute;
+border : 0px solid;
+top:50%;
+left:62%;
+width:250px;
+height:200px;
+}
+
+#factoryform{
+position:absolute;
+max-width:300px;
+min-width:100px;
+top:50%;
+left:20%;
+padding:10px 50px;
+border:2px solid gray;
+border-radius:10px;
+font-family:raleway;
+background-color:#fff
+}
+#schoolform{
+position:absolute;
+max-width:300px;
+min-width:100px;
+top:50%;
+left:20%;
+padding:10px 50px;
+border:2px solid gray;
+border-radius:10px;
+font-family:raleway;
+background-color:#fff
+}
+#hdbform{
+position:absolute;
+max-width:300px;
+min-width:100px;
+top:50%;
+left:20%;
+padding:10px 50px;
+border:2px solid gray;
+border-radius:10px;
+font-family:raleway;
+background-color:#fff
+}
+#trafficform{
+position:absolute;
+max-width:300px;
+min-width:100px;
+top:50%;
+left:20%;
+padding:10px 50px;
+border:2px solid gray;
+border-radius:10px;
+font-family:raleway;
+background-color:#fff
+}
+#manufacturerform{
+position:absolute;
+max-width:300px;
+min-width:100px;
+top:50%;
+left:20%;
+padding:10px 50px;
+border:2px solid gray;
+border-radius:10px;
+font-family:raleway;
+background-color:#fff
+}
+#agricultureform{
+position:absolute;
+max-width:300px;
+min-width:100px;
+top:50%;
+left:20%;
+padding:10px 50px;
+border:2px solid gray;
+border-radius:10px;
+font-family:raleway;
+background-color:#fff
+}
+#naturaldisasterMgtform{
+position:absolute;
+max-width:300px;
+min-width:100px;
+top:50%;
+left:20%;
+padding:10px 50px;
+border:2px solid gray;
+border-radius:10px;
+font-family:raleway;
+background-color:#fff
+}
+
+#map{	
+	position:absolute;
+	background: url("../../../images/phase05/p5_npn/map.png");
+	background-size: 100%;
+	top:20%;
+	left:10%;
+	width:800px;
+	height:625px;
+
+}
+
+#chart_div{
+	position:absolute;
+	border : 0px solid;
+	top:130%;
+	left:10%;
+	width:800px;
+	height:625px;
+]
+
+#text{
+	position:absolute;
+	border : 1px solid;
+	top:1%;
+	left:5%;
+	width:700px;
+	height:400px;
+}
+
+#main{
+position:absolute;
+border : 0px solid;
+top:5%;
+left:5%;
+width:1000px;
+height:1200px;
+}

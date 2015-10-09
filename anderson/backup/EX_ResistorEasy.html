@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/phase02/p2_resistor/EX_ResistorLevel.css">
+<title>Resistor</title>
+
+<head/>
+
+<body id="main">
+<div id="label">
+<h2 id="instruction3"> Click on replay level to redo this level with a new question. </h2>
+<h2 id="instruction1"> You have 5 minutes to form a 4-band resistor</h2> <h2 id="question" style="color:blue">350 &#8486 +/- 0.1%</h2> <h2 id="instruction2">by clicking on the correct sequence color band.</br> Refer to the list on the right as a guide.
+You have 3 tries to submit the correct answer. </br> Click on Submit to check your final answer.</br> Click on Undo to remove the last color band if you select the wrong color. Click on start to begin. The question
+ will appear in blue.</h2>
+<button type="button" id="start" onclick="loadImages()" >Start</button>
+
+<p>Timer: <input type="text" id="txt"></p>
+</div>
+<p><img id="answer" width="350" height="100"></p>
+<table id="displayColor">
+  <tr>
+    <td><img id= "color1" width="50" height="100" src="images/phase02/p2_resistor/black_line.png" onclick="storeInput(this.id)"></td>
+    <td><img id= "color2" width="50" height="100" src="images/phase02/p2_resistor/blue_line.jpg" onclick="storeInput(this.id)"></td>
+    <td><img id= "color3" width="50" height="100" src="images/phase02/p2_resistor/brown_line.jpg" onclick="storeInput(this.id)"></td>
+    <td><img id= "color4" width="50" height="100" src="images/phase02/p2_resistor/green_line.jpg" onclick="storeInput(this.id)"></td>
+    <td><img id= "color5" width="50" height="100" src="images/phase02/p2_resistor/silver_line.jpg" onclick="storeInput(this.id)"></td>
+    <td><img id= "color6" width="50" height="100" src="images/phase02/p2_resistor/orange_line.jpg" onclick="storeInput(this.id)"></td>
+    <td><img id= "color7" width="50" height="100" src="images/phase02/p2_resistor/red_line.jpg" onclick="storeInput(this.id)"></td>
+    <td><img id= "color8" width="50" height="100" src="images/phase02/p2_resistor/violet_line.png" onclick="storeInput(this.id)"></td>
+    <td><img id= "color9" width="50" height="100" src="images/phase02/p2_resistor/white_line.jpg" onclick="storeInput(this.id)"></td>
+    <td><img id= "color0" width="50" height="100" src="images/phase02/p2_resistor/yellow_line.jpg" onclick="storeInput(this.id)"></td>
+    <td><img id= "color10" width="50" height="100" src="images/phase02/p2_resistor/gold_line.jpg" onclick="storeInput(this.id)"></td>
+    <td><img id= "color11" width="50" height="100" src="images/phase02/p2_resistor/grey_line.jpg" onclick="storeInput(this.id)"></td>
+  </tr>
+</table>
+
+<img id="list" src="images/phase02/p2_resistor/resistor_list.png" width="200" height="200">
+<div id="resistor">
+<table id="displayInput">
+  <tr>
+    <td><img id= "colorInput1" width="25" height="55"></td>
+    <td><img id= "colorInput2" width="25" height="55"></td>
+    <td><img id= "colorInput3" width="25" height="55"></td>
+    <td><img id= "colorInput4" width="25" height="55"></td>
+  </tr>
+</table>
+</div>
+<button type="button" id="undoButton" onclick="undo(inputArr)" >Undo</button>
+<button type="button" id="submitButton" onclick="submit(inputArr)" >Submit</button>
+<button type="button" id="replayButton" onclick="replay()">Replay Level</button>
+<button type="button" width="250" id="backButton"><a href="p2_resistor.html">Return to replay with other level</button>
+<button type="button" id="nextButton"><a href="p2_mcq.html">End</button>
+</body>
+
+<script>
+	document.getElementById("answer").style.visibility="hidden";
+	document.getElementById("replayButton").style.visibility="hidden";
+	document.getElementById("backButton").style.visibility="hidden";
+	document.getElementById("nextButton").style.visibility="hidden";
+	document.getElementById("undoButton").style.visibility="hidden";
+	document.getElementById("submitButton").style.visibility="hidden";
+	document.getElementById("question").style.visibility="hidden";
+	document.getElementById("instruction3").style.visibility="hidden";
+
+	var play =0;
+	var tries=3;
+
+	var questions = ["350 &#8486 +/- 0.1%",
+					"410000 &#8486 +/- 0.25%",
+					"8.5 &#8486 +/- 2%",
+					"95 &#8486 +/- 0.05%"];
+
+	var answers = [
+		"images/phase02/p2_resistor/EA0.jpg",
+		"images/phase02/p2_resistor/EA1.jpg",
+		"images/phase02/p2_resistor/EA2.jpg",
+		"images/phase02/p2_resistor/EA3.jpg"
+	];
+
+	var resistorColor = [
+	    "images/phase02/p2_resistor/black_line.png",
+	    "images/phase02/p2_resistor/brown_line.jpg",
+	    "images/phase02/p2_resistor/red_line.jpg",
+	    "images/phase02/p2_resistor/orange_line.jpg",
+	    "images/phase02/p2_resistor/yellow_line.jpg",
+	    "images/phase02/p2_resistor/green_line.jpg",
+	    "images/phase02/p2_resistor/blue_line.jpg",
+	    "images/phase02/p2_resistor/violet_line.png",
+	    "images/phase02/p2_resistor/grey_line.jpg",
+	    "images/phase02/p2_resistor/white_line.jpg",
+	    "images/phase02/p2_resistor/gold_line.jpg",
+	    "images/phase02/p2_resistor/silver_line.jpg"
+	];
+
+	var solutionArr0=[
+		"images/phase02/p2_resistor/orange_line.jpg",
+	    "images/phase02/p2_resistor/green_line.jpg",
+	    "images/phase02/p2_resistor/brown_line.jpg",
+	    "images/phase02/p2_resistor/violet_line.png"
+	    ]
+
+	var solutionArr1=[
+			"images/phase02/p2_resistor/yellow_line.jpg",
+		    "images/phase02/p2_resistor/brown_line.jpg",
+		    "images/phase02/p2_resistor/yellow_line.jpg",
+		    "images/phase02/p2_resistor/blue_line.jpg"
+	    ]
+
+	var solutionArr2=[
+			"images/phase02/p2_resistor/grey_line.jpg",
+		    "images/phase02/p2_resistor/green_line.jpg",
+		    "images/phase02/p2_resistor/gold_line.jpg",
+		    "images/phase02/p2_resistor/red_line.jpg"
+	    ]
+
+	var solutionArr3=[
+			"images/phase02/p2_resistor/white_line.jpg",
+		    "images/phase02/p2_resistor/green_line.jpg",
+		    "images/phase02/p2_resistor/black_line.png",
+		    "images/phase02/p2_resistor/grey_line.jpg"
+	    ]
+
+	var inputArr= [];
+
+	document.getElementById("color1").style.visibility="hidden";
+	document.getElementById("color2").style.visibility="hidden";
+	document.getElementById("color3").style.visibility="hidden";
+	document.getElementById("color4").style.visibility="hidden";
+	document.getElementById("color5").style.visibility="hidden";
+	document.getElementById("color6").style.visibility="hidden";
+	document.getElementById("color7").style.visibility="hidden";
+	document.getElementById("color8").style.visibility="hidden";
+	document.getElementById("color9").style.visibility="hidden";
+	document.getElementById("color10").style.visibility="hidden";
+	document.getElementById("color11").style.visibility="hidden";
+	document.getElementById("color0").style.visibility="hidden";
+
+	var c = 300;
+	var t;
+	var timer_is_on = 0;
+	var time=[]; //monitor the time to end each qus whether right or wrong.
+
+function timedCount() {
+    document.getElementById("txt").value = c;
+    c = c - 1;
+    if(c<=0){
+    	endSession();
+    }else{
+    	t = setTimeout(function(){timedCount()}, 1000);
+    }
+}
+
+
+function loadImages(){
+		document.getElementById("color1").style.visibility="visible";
+		document.getElementById("color2").style.visibility="visible";
+		document.getElementById("color3").style.visibility="visible";
+		document.getElementById("color4").style.visibility="visible";
+		document.getElementById("color5").style.visibility="visible";
+		document.getElementById("color6").style.visibility="visible";
+		document.getElementById("color7").style.visibility="visible";
+		document.getElementById("color8").style.visibility="visible";
+		document.getElementById("color9").style.visibility="visible";
+		document.getElementById("color10").style.visibility="visible";
+		document.getElementById("color11").style.visibility="visible";
+		document.getElementById("color0").style.visibility="visible";
+		document.getElementById("question").style.visibility="visible";
+
+		document.getElementById("start").style.visibility="hidden";
+		document.getElementById("undoButton").style.visibility="visible";
+		document.getElementById("submitButton").style.visibility="visible";
+
+		inputArr = [];
+		emptyDisplay(inputArr);
+
+		 if (!timer_is_on) {
+		 		c = 300;
+		 		tries = 3;
+		        timer_is_on = 1;
+		        timedCount();
+    }
+
+
+}
+
+function storeInput(userClick){
+	var selection = document.getElementById(userClick).getAttribute("src");
+	inputArr.push(selection);
+	if(inputArr.length>4){
+			inputArr.pop();
+			stop();
+	}
+	else{
+		display(inputArr);
+	}
+
+}
+
+function display(array){
+	for(i=0; i<array.length; i++){
+	var num= i+1;
+		document.getElementById('colorInput'+ num).setAttribute("src",array[i]);
+	}
+}
+
+function emptyDisplay(array){
+	for(j=1; j<5; j++){
+		document.getElementById('colorInput'+ j).src = "";
+	}
+}
+
+function submit(inputArr){
+	var score =0;
+	tries-=1;
+	for(i=0; i<inputArr.length; i++){
+		if(play==0){
+			if(inputArr[i] == solutionArr0[i]){
+			score++;
+			}
+		}
+		if(play==1){
+					if(inputArr[i] == solutionArr1[i]){
+					score++;
+					}
+		}
+		if(play==2){
+					if(inputArr[i] == solutionArr2[i]){
+					score++;
+					}
+		}
+		if(play==3){
+					if(inputArr[i] == solutionArr3[i]){
+					score++;
+					}
+		}
+	}
+	if(score==4){
+		alert('You are correct! Good job.');
+		document.getElementById("nextButton").style.visibility="visible";
+		document.getElementById("backButton").style.visibility="visible";
+		document.getElementById("instruction1").style.visibility="hidden";
+		document.getElementById("instruction2").style.visibility="hidden";
+		document.getElementById("question").style.visibility="hidden";
+		document.getElementById("instruction3").style.visibility="visible";
+		document.getElementById("submitButton").style.visibility="hidden";
+		document.getElementById("undoButton").style.visibility="hidden";
+		document.getElementById("color1").style.visibility="hidden";
+			document.getElementById("color2").style.visibility="hidden";
+			document.getElementById("color3").style.visibility="hidden";
+			document.getElementById("color4").style.visibility="hidden";
+			document.getElementById("color5").style.visibility="hidden";
+			document.getElementById("color6").style.visibility="hidden";
+			document.getElementById("color7").style.visibility="hidden";
+			document.getElementById("color8").style.visibility="hidden";
+			document.getElementById("color9").style.visibility="hidden";
+			document.getElementById("color10").style.visibility="hidden";
+			document.getElementById("color11").style.visibility="hidden";
+		document.getElementById("color0").style.visibility="hidden";
+		document.getElementById("replayButton").style.visibility="visible";
+		time.push(c);
+		clearTimeout(t);
+		timer_is_on = 0;
+
+	}else if(tries>0){
+		alert('You are incorrect! You have '+tries+' more tries.');
+		time.push(c);
+	}else{
+		alert('You are incorrect! you have no more tries. The answer is shown.');
+		document.getElementById("displayColor").style.visibility="hidden";
+		document.getElementById("replayButton").style.visibility="visible";
+		displayAns();
+	}
+}
+
+function undo(inputArr){
+	if(inputArr.length>=1){
+		document.getElementById('colorInput'+ inputArr.length).src = "";
+		inputArr.pop();
+	}
+}
+
+function stop(){
+	alert('Please submit your answer or click undo to edit your answer.');
+}
+
+function displayAns(){
+
+	document.getElementById("submitButton").style.visibility="hidden";
+	document.getElementById("color1").style.visibility="hidden";
+	document.getElementById("color2").style.visibility="hidden";
+	document.getElementById("color3").style.visibility="hidden";
+	document.getElementById("color4").style.visibility="hidden";
+	document.getElementById("color5").style.visibility="hidden";
+	document.getElementById("color6").style.visibility="hidden";
+	document.getElementById("color7").style.visibility="hidden";
+	document.getElementById("color8").style.visibility="hidden";
+	document.getElementById("color9").style.visibility="hidden";
+	document.getElementById("color10").style.visibility="hidden";
+	document.getElementById("color11").style.visibility="hidden";
+	document.getElementById("color0").style.visibility="hidden";
+	document.getElementById("undoButton").style.visibility="hidden";
+	document.getElementById("backButton").style.visibility="visible";
+	document.getElementById("nextButton").style.visibility="hidden";
+	document.getElementById("replayButton").style.visibility="visible";
+	document.getElementById("instruction1").style.visibility="hidden";
+	document.getElementById("instruction2").style.visibility="hidden";
+	document.getElementById("question").style.visibility="hidden";
+	document.getElementById("instruction3").style.visibility="visible";
+	time.push(c);
+	clearTimeout(t);
+	timer_is_on = 0;
+	document.getElementById("answer").style.visibility="visible";
+	document.getElementById('answer').src= answers[play];
+}
+
+function replay() {
+	if(play < questions.length-1){
+		play++;
+	}else{
+		play=0;
+	}
+	document.getElementById("question").style.visibility="hidden";
+	document.getElementById("instruction1").style.visibility="visible";
+	document.getElementById("instruction2").style.visibility="visible";
+	document.getElementById("instruction3").style.visibility="hidden";
+	document.getElementById("answer").style.visibility="hidden";
+	document.getElementById("start").style.visibility="visible";
+	document.getElementById("replayButton").style.visibility="hidden";
+	document.getElementById("nextButton").style.visibility="hidden";
+	document.getElementById("backButton").style.visibility="hidden";
+	var next = questions[play];
+	document.getElementById("question").innerHTML= next;
+}
+
+function endSession(){
+	alert('Time is up. Return to Level Page to redo.');
+	displayAns();
+
+}
+
+</script>
+
+</html>

@@ -1,0 +1,35 @@
+
+#label{
+position:absolute;
+border : 0px solid;
+top:10%;
+left:12%;
+width:1000px;
+height:310px;
+}
+#information{
+position:absolute;
+border : 0px solid;
+top:50%;
+left:15%;
+width:1000px;
+height:310px;
+}
+#main{
+position:absolute;
+border : 0px solid;
+top:1%;
+left:1%;
+width:1000px;
+height:700px;
+}
+#start{
+position:absolute;
+border : 0px solid;
+top:80%;
+left:95%;
+width:100px;
+height:50px;
+border-radius:3px;
+background-color:#819FF7;
+}
